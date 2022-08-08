@@ -9,7 +9,7 @@ const app = express();
 const server = http.createServer(app);
 
 app.get("/", (req, res) => {
-  const fileData = fs.readFileSync("../result.json", "utf8");
+  const fileData = fs.readFileSync(".../../var/www/html/cryptorank_parser/result.json", "utf8");
 
   res.json(fileData);
 });
