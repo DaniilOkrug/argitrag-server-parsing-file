@@ -10,6 +10,8 @@ const server = http.createServer(app);
 
 app.get("/", (req, res) => {
   try {
+    console.log('New request');
+
     const fileData = fs.readFileSync(
       "../../var/www/html/cryptorank_parser/result.json",
       "utf8"
@@ -17,7 +19,7 @@ app.get("/", (req, res) => {
 
     res.json(fileData);
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.json({});
   }
 });
