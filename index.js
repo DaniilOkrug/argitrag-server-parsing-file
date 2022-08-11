@@ -9,9 +9,16 @@ const app = express();
 const server = http.createServer(app);
 
 app.get("/", (req, res) => {
-  const fileData = fs.readFileSync("../../var/www/html/cryptorank_parser/result.json", "utf8");
+  try {
+    const fileData = fs.readFileSync(
+      "../../var/www/html/cryptorank_parser/result.json",
+      "utf8"
+    );
 
-  res.json(fileData);
+    res.json(fileData);
+  } catch (error) {
+    res.json({});
+  }
 });
 
 const start = async () => {
