@@ -17,6 +17,7 @@ app.get("/", (req, res) => {
 
     res.json(fileData);
   } catch (error) {
+    console.log(error);
     res.json({});
   }
 });
